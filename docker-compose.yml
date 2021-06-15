@@ -1,0 +1,19 @@
+version: "3"
+services:
+  echo:
+    build:
+      context: .
+    environment:
+      VIRTUAL_HOST: "${VIRTUAL_HOST}"
+      VIRTUAL_PORT: "${VIRTUAL_PORT}"
+      LETSENCRYPT_HOST: "${LETSENCRYPT_HOST}"
+      LETSENCRYPT_EMAIL: "${LETSENCRYPT_EMAIL}"
+      ECHO_API: "https://echoapi.codingstack.ninja/api/v1"
+      PORT: "${VIRTUAL_PORT}"
+      JWT_SECRET: "${JWT_SECRET}"
+      MONGODB_URI: "${MONGODB_URI}"
+
+networks:
+  default:
+    external:
+      name: echo-api_default
